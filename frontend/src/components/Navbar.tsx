@@ -11,7 +11,7 @@ export default function Navbar() {
     <header className="w-full bg-black text-white px-6 py-4 Z-10">
       <div className="max-w-7xl mx-auto flex items-center justify-between">
         {/* Logo aligned to left */}
-        <h1 className="text-3xl font-bold text-blue-600">aideas</h1>
+        <h1 className="text-3xl font-bold text-blue-600 ">aideas</h1>
           {/* Mobile menu toggle button */}
 <button className="md:hidden focus:outline-none" onClick={toggleMenu}>
     {isOpen ? <FaTimes /> : <FaBars />}
@@ -21,7 +21,7 @@ export default function Navbar() {
         <nav className="hidden md:flex space-x-6 text-sm">
           <Link href="/">Home</Link>
           <Link href="/events">Events</Link>
-          <Link href="/about">about</Link>
+          <Link href="/about">abouts</Link>
           <Link href="/sessions">Sessions</Link>
           <Link href="/members">Members</Link>
           <Link href="/contact">Contact Us</Link>
