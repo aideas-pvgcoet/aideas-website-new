@@ -1,10 +1,8 @@
-import {
-  FaLinkedin,
-  FaInstagram,
-  FaTwitter,
-  FaEnvelope
-} from 'react-icons/fa';
 
+import { FaLinkedin } from 'react-icons/fa';
+import { FaInstagram } from 'react-icons/fa';
+import { FaTwitter } from 'react-icons/fa';
+import { FaEnvelope } from 'react-icons/fa';
 export default function Footer() {
   return (
     <footer className="bg-zinc-900 text-gray-400 py-6 mt-12">
