@@ -34,7 +34,7 @@ export default function Navbar() {
     <Link href="/about" onClick={() => setIsOpen(false)}>About</Link>
     <Link href="/sessions" onClick={() => setIsOpen(false)}>Sessions</Link>
     <Link href="/members" onClick={() => setIsOpen(false)}>Members</Link>
-    <Link href="/contact" onClick={() => setIsOpen(false)}>Contact Us</Link>
+    <Link href="/contact" onClick={() => setIsOpen(false)}>Contact</Link>
   </div>
 )}
 
