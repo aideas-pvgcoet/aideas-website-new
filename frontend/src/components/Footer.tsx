@@ -1,5 +1,5 @@
-'use client'
-import { FaLinkedin } from 'react-icons/fa';
+'use client';
+import { FaLinkedin } from "react-icons/fa";
 import { FaInstagram } from 'react-icons/fa';
 import { FaTwitter } from 'react-icons/fa';
 import { FaEnvelope } from 'react-icons/fa';
