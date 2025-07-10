@@ -19,7 +19,7 @@ export default function Footer() {
           <a href="/about" className="hover:text-white">About</a>
           <a href="/events" className="hover:text-white">Events</a>
           <a href="/projects" className="hover:text-white">Projects</a>
-          <a href="/contact" className="hover:text-white">Contact</a>
+          <a href="/contact" className="hover:text-white">Contact Us</a>
         </div>
 
         {/* Right - Social Icons */}
