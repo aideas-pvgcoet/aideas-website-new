@@ -43,7 +43,7 @@ export default function Footer() {
             <FaInstagram />
           </a>
          < a
-          href=""
+          href="https://chat.whatsapp.com/JNR4hTuJHYB0w3F2DbDMKy?mode=ac_c"
           target="_blank"
           aria-label="whatsapp"
             className="hover:text-white"
