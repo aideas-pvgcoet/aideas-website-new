@@ -1,7 +1,7 @@
 'use client';
+import { FaWhatsapp } from "react-icons/fa";
 import { FaLinkedin } from "react-icons/fa";
 import { FaInstagram } from 'react-icons/fa';
-import { FaTwitter } from 'react-icons/fa';
 import { FaEnvelope } from 'react-icons/fa';
 export default function Footer() {
   return (
@@ -42,15 +42,13 @@ export default function Footer() {
           >
             <FaInstagram />
           </a>
-          <a
-            href="https://twitter.com/YOUR_LINK"
-            target="_blank"
-            rel="noopener noreferrer"
-            aria-label="Twitter"
+         < a
+          href=""
+          target="_blank"
+          aria-label="whatsapp"
             className="hover:text-white"
-          >
-            <FaTwitter />
-          </a>
+         > <FaWhatsapp />
+         </a>
           <a
             href="mailto:aideas@pvgcoet.ac.in"
             aria-label="Email"
