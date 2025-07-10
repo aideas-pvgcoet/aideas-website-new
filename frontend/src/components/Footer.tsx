@@ -25,7 +25,7 @@ export default function Footer() {
         {/* Right - Social Icons */}
         <div className="flex gap-4 text-xl">
           <a
-            href="https://www.linkedin.com/in/YOUR_LINK"
+            href="https://www.linkedin.com/company/aideas-pvg"
             target="_blank"
             rel="noopener noreferrer"
             aria-label="LinkedIn"
@@ -34,7 +34,7 @@ export default function Footer() {
             <FaLinkedin />
           </a>
           <a
-            href="https://www.instagram.com/YOUR_LINK"
+            href="https://www.instagram.com/aideas_pvg/?hl=en"
             target="_blank"
             rel="noopener noreferrer"
             aria-label="Instagram"
@@ -52,7 +52,7 @@ export default function Footer() {
             <FaTwitter />
           </a>
           <a
-            href="mailto:yourmail@aideas.com"
+            href="mailto:aideas@pvgcoet.ac.in"
             aria-label="Email"
             className="hover:text-white"
           >
