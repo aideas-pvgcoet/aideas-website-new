@@ -52,7 +52,7 @@ export default function Footer() {
             <FaTwitter />
           </a>
           <a
-            href="mailto:yourmail@aideas.com"
+            href="mailto:aideas@pvgcoet.ac.in"
             aria-label="Email"
             className="hover:text-white"
           >
