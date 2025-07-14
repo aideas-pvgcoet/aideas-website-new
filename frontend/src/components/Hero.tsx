@@ -1,18 +1,19 @@
 const Hero = () => {
   return (
-    <div
-      className="
-        w-full
-        h-[90vh]
-        bg-cover
-        bg-no-repeat
-        bg-[center_top_60%]        // mobile focus lower part
-        sm:bg-[center_top_40%]     // tablet adjusts higher
-        md:bg-[center_top_30%]     // desktop more centered
-        relative
-      "
-      style={{ backgroundImage: `url('/image copy.png')` }}
-    >
+   <div
+  className="
+    w-full
+    h-[70vh] sm:h-[80vh] md:h-[100vh]
+    bg-cover
+    bg-no-repeat
+    bg-[center_top_60%]
+    sm:bg-[center_top_40%]
+    md:bg-[center_top_30%]
+    relative
+  "
+  style={{ backgroundImage: `url('/image copy.png')` }}
+>
+
       {/* Overlay */}
       <div className="absolute inset-0 bg-black/60 z-0" />
 
