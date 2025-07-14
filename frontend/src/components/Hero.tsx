@@ -1,9 +1,42 @@
 'use client';
+import { useEffect, useRef } from 'react'; // ✅ NEW
 import { motion } from 'framer-motion';
+import gsap from 'gsap'; // ✅ NEW
 import Image from 'next/image';
 import Logo from '@/components/image.jpeg'; // Adjust path if needed
 
 const Hero = () => {
+  const headingRef = useRef<HTMLHeadingElement>(null); // ✅ NEW
+
+  useEffect(() => {
+    const scrambleText = (el: HTMLElement, text: string, delay = 0) => {
+      const chars = '!<>-_\\/[]{}—=+*^?#________';
+      let iterations = 0;
+
+      const scramble = () => {
+        const scrambled = text
+          .split('')
+          .map((char, i) => {
+            if (i < iterations) return char;
+            return chars[Math.floor(Math.random() * chars.length)];
+          })
+          .join('');
+        el.textContent = scrambled;
+
+        if (iterations <= text.length) {
+          iterations += 1 / 3;
+          requestAnimationFrame(scramble);
+        }
+      };
+
+      setTimeout(scramble, delay * 1000);
+    };
+
+    if (headingRef.current) {
+      scrambleText(headingRef.current, 'Welcome to aIDEAS');
+    }
+  }, []);
+
   return (
     <section className="relative w-full min-h-[90vh] sm:min-h-screen bg-black text-white overflow-hidden">
       {/* 🌈 Animated Background Blobs */}
@@ -24,10 +57,10 @@ const Hero = () => {
 
       {/* 🧠 Hero Content */}
       <div className="relative z-10 flex flex-col-reverse lg:flex-row items-center justify-center min-h-[70vh] sm:min-h-screen px-4 sm:px-12 md:px-20 max-w-7xl mx-auto gap-4 sm:gap-8">
-   
         {/* 📝 Text Section */}
         <div className="text-center lg:text-left max-w-xl">
           <motion.h1
+            ref={headingRef} // ✅ NEW
             initial={{ opacity: 0, y: 60 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 1 }}
