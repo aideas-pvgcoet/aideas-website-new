@@ -23,8 +23,8 @@ const Hero = () => {
       </div>
 
       {/* 🧠 Hero Content */}
-      <div className="relative z-10 flex flex-col-reverse lg:flex-row items-center justify-center min-h-[90vh] sm:min-h-screen px-4 sm:px-12 md:px-20 max-w-7xl mx-auto gap-4 sm:gap-8">
-        
+      <div className="relative z-10 flex flex-col-reverse lg:flex-row items-center justify-center min-h-[70vh] sm:min-h-screen px-4 sm:px-12 md:px-20 max-w-7xl mx-auto gap-4 sm:gap-8">
+   
         {/* 📝 Text Section */}
         <div className="text-center lg:text-left max-w-xl">
           <motion.h1
