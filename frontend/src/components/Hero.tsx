@@ -1,7 +1,6 @@
 'use client';
 import { useEffect, useRef } from 'react'; // ✅ NEW
 import { motion } from 'framer-motion';
-import gsap from 'gsap'; // ✅ NEW
 import Image from 'next/image';
 import Logo from '@/components/image.jpeg'; // Adjust path if needed
 
