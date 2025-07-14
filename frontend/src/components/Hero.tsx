@@ -31,7 +31,7 @@ const Hero = () => {
             initial={{ opacity: 0, y: 60 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 1 }}
-            className="text-3xl sm:text-5xl md:text-6xl font-extrabold text-transparent bg-clip-text bg-gradient-to-r from-sky-400 to-purple-500"
+            className="text-5xl font-extrabold text-transparent bg-clip-text bg-gradient-to-r from-sky-400 to-purple-500"
           >
             Welcome to aIDEAS
           </motion.h1>
@@ -62,13 +62,15 @@ const Hero = () => {
           initial={{ opacity: 0, scale: 0.95 }}
           animate={{ opacity: 1, scale: 1 }}
           transition={{ duration: 1.4, delay: 0.3 }}
-          className="max-w-[260px] sm:max-w-[380px] md:max-w-[450px] w-full mx-auto"
+          className="max-w-[360px] sm:max-w-[400px] md:max-w-[550px] w-full mx-auto"
         >
           <Image
             src={Logo}
             alt="aIDEAS logo"
-            className="w-full h-auto rounded-xl shadow-2xl max-h-[220px] sm:max-h-none"
+            className="rounded-xl shadow-2xl max-h-[220px] sm:max-h-none"
             priority
+            height={800}
+            width={800}
           />
         </motion.div>
       </div>
