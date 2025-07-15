@@ -38,19 +38,28 @@ const Hero = () => {
       <div className="relative z-10 flex flex-col-reverse lg:flex-row items-center justify-center min-h-[70vh] sm:min-h-screen px-4 sm:px-12 md:px-20 max-w-7xl mx-auto gap-4 sm:gap-8">
         {/* 📝 Text Section */}
         <div className="text-center lg:text-left max-w-xl">
-            <div className="text-8xl flex justify-center gap-1 pt-3 flex-wrap">
-  {'Welcome to   aIDEAS'.split('').map((char, index) => (
-    <motion.span
-      key={index}
-      initial={{ y: 40, opacity: 0, rotate: -90 }}
-      animate={{ y: 0, opacity: 1, rotate: 0 }}
-      transition={{ delay: 0.08 * index, type: 'spring', stiffness: 100 }}
-      className="text-5xl lg:text-5xl text-center lg:text-left font-extrabold text-transparent bg-clip-text bg-gradient-to-r from-sky-400 to-purple-500"
-    >
-      {char === ' ' ? '\u00A0' : char}
-    </motion.span>
+       <div className="flex flex-wrap justify-center lg:justify-start pt-3 gap-2">
+  {"Welcome to aIDEAS".split(" ").map((word, wordIndex) => (
+    <span key={wordIndex} className="flex">
+      {word.split("").map((char, charIndex) => (
+        <motion.span
+          key={charIndex}
+          initial={{ y: 40, opacity: 0, rotate: -90 }}
+          animate={{ y: 0, opacity: 1, rotate: 0 }}
+          transition={{ delay: 0.05 * (wordIndex * 8 + charIndex), type: "spring", stiffness: 100 }}
+          className="text-5xl lg:text-5xl font-extrabold text-transparent bg-clip-text bg-gradient-to-r from-sky-400 to-purple-500"
+        >
+          {char}
+        </motion.span>
+      ))}
+      {/* space between words */}
+      <span className="w-2" />
+    </span>
   ))}
-</div><div className="flex flex-wrap justify-center text-center max-w-xl mx-auto">
+</div>
+
+
+<div className="flex flex-wrap justify-center text-center max-w-xl mx-auto">
   {"Igniting minds. Innovating futures. Exploring the realm of Artificial Intelligence and Data Science."
     .split("")
     .map((char, index) => (
