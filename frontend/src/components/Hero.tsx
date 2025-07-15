@@ -1,97 +1,82 @@
 'use client';
-import { useEffect, useRef } from 'react';
 import { motion } from 'framer-motion';
 import Image from 'next/image';
 import Logo from '@/components/image.jpeg';
 
 const Hero = () => {
-  const headingRef = useRef<HTMLHeadingElement>(null);
-
-  useEffect(() => {
-    const scrambleText = (el: HTMLElement, text: string, delay = 0) => {
-      const chars = '!<>-_\/[]{}—=+*^?#________';
-      let iterations = 0;
-
-      const scramble = () => {
-        const scrambled = text
-          .split('')
-          .map((char, i) => {
-            if (i < iterations) return char;
-            return chars[Math.floor(Math.random() * chars.length)];
-          })
-          .join('');
-        el.textContent = scrambled;
-
-        if (iterations <= text.length) {
-          iterations += 1 / 3;
-          requestAnimationFrame(scramble);
-        }
-      };
-
-      setTimeout(scramble, delay * 1000);
-    };
-
-    if (headingRef.current) {
-      scrambleText(headingRef.current, 'Welcome to aIDEAS');
-    }
-  }, []);
-
   return (
     <section className="relative w-full min-h-[90vh] sm:min-h-screen bg-black text-white overflow-hidden">
       {/* 🌈 Animated Background Blobs */}
       <div className="absolute inset-0 z-0">
         <motion.div
-          initial={{ opacity: 0, scale: 1 }}
-          animate={{ opacity: 0.2, scale: [1, 1.1, 1] }}
-          transition={{ duration: 6, repeat: Infinity, ease: "easeInOut" }}
-          className="absolute w-[80vw] h-[80vw] bg-purple-600 rounded-full filter blur-2xl top-[10%] left-[10%]"
-        />
-        <motion.div
-          initial={{ opacity: 0, scale: 1 }}
-          animate={{ opacity: 0.2, scale: [1, 1.2, 1] }}
-          transition={{ duration: 8, repeat: Infinity, ease: "easeInOut" }}
-          className="absolute w-[100vw] h-[100vw] bg-blue-500 rounded-full filter blur-3xl top-[50%] left-[20%]"
-        />
+  initial={{ opacity: 0, scale: 1, x: 0, y: 0 }}
+  animate={{ 
+    opacity: 0.3, 
+    scale: [1, 1.15, 1], 
+    x: [0, 20, -20, 0], 
+    y: [0, -20, 20, 0] 
+  }}
+  transition={{ duration: 10, repeat: Infinity, ease: "easeInOut" }}
+  className="absolute w-[90vw] h-[90vw] bg-purple-600 rounded-full filter blur-2xl top-[5%] left-[5%] z-0"
+/>
+
+<motion.div
+  initial={{ opacity: 0, scale: 1, x: 0, y: 0 }}
+  animate={{ 
+    opacity: 0.3, 
+    scale: [1, 1.25, 1], 
+    x: [0, -30, 30, 0], 
+    y: [0, 30, -30, 0] 
+  }}
+  transition={{ duration: 12, repeat: Infinity, ease: "easeInOut" }}
+  className="absolute w-[110vw] h-[110vw] bg-sky-500 rounded-full filter blur-3xl top-[40%] left-[25%] z-0"
+/>
+
       </div>
 
       {/* 🧠 Hero Content */}
-      <div className="relative z-20 flex flex-col-reverse lg:flex-row items-center justify-center min-h-[70vh] sm:min-h-screen px-4 sm:px-12 md:px-20 max-w-7xl mx-auto gap-4 sm:gap-8">
+      <div className="relative z-10 flex flex-col-reverse lg:flex-row items-center justify-center min-h-[70vh] sm:min-h-screen px-4 sm:px-12 md:px-20 max-w-7xl mx-auto gap-4 sm:gap-8">
         {/* 📝 Text Section */}
         <div className="text-center lg:text-left max-w-xl">
-            <div className="text-2xl flex  justify-center gap-1 pt-3 flex-wrap">
+            <div className="text-9xl flex  justify-center gap-1 pt-3 flex-wrap">
   {'Welcome to aIDEAS'.split('').map((char, index) => (
     <motion.span
       key={index}
       initial={{ y: 40, opacity: 0, rotate: -90 }}
       animate={{ y: 0, opacity: 1, rotate: 0 }}
-      transition={{ delay: 0.05 * index, type: 'spring', stiffness: 100 }}
-      className="text-5xl text-center font-extrabold text-transparent bg-clip-text bg-gradient-to-r from-sky-400 to-purple-500"
+      transition={{ delay: 0.08 * index, type: 'spring', stiffness: 100 }}
+      className="text-6xl text-center font-extrabold text-transparent bg-clip-text bg-gradient-to-r from-sky-400 to-purple-500"
     >
       {char === ' ' ? '\u00A0' : char}
     </motion.span>
   ))}
+</div><div className="flex flex-wrap justify-center text-center max-w-xl mx-auto">
+  {"Igniting minds. Innovating futures. Exploring the realm of Artificial Intelligence and Data Science."
+    .split("")
+    .map((char, index) => (
+      <motion.span
+        key={index}
+        initial={{ y: 40, opacity: 0 }}
+        animate={{ y: 0, opacity: 1 }}
+        transition={{ delay: 0.04 * index, type: 'spring', stiffness: 80 }}
+        className="text-base sm:text-lg md:text-xl text-gray-300"
+      >
+        {char === " " ? "\u00A0" : char}
+      </motion.span>
+    ))}
 </div>
 
+<motion.div
+  initial={{ opacity: 0, y: 20 }}
+  animate={{ opacity: 1, y: 0 }}
+  transition={{ duration: 1.3, delay: 1.5 }} // Delayed till most of text is done
+  className="mt-4 sm:mt-8 text-center"
+>
+  <button className="bg-sky-500 hover:bg-sky-600 text-white px-6 py-3 rounded-xl font-semibold shadow-lg transition">
+    Explore Now
+  </button>
+</motion.div>
 
-          <motion.p
-            initial={{ opacity: 0, y: 40 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 1.2, delay: 0.2 }}
-            className="text-base sm:text-lg md:text-xl text-gray-300 mt-2 sm:mt-6"
-          >
-            Igniting minds. Innovating futures. Exploring the realm of Artificial Intelligence and Data Science.
-          </motion.p>
-
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 1.3, delay: 0.5 }}
-            className="mt-4 sm:mt-8"
-          >
-            <button className="bg-sky-500 hover:bg-sky-600 text-white px-6 py-3 rounded-xl font-semibold shadow-lg transition">
-              Explore Now
-            </button>
-          </motion.div>
         </div>
 
         {/* 🖼️ Animated Image Section */}
