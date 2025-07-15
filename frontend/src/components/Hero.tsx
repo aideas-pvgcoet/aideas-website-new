@@ -2,6 +2,7 @@
 import { motion } from 'framer-motion';
 import Image from 'next/image';
 import Logo from '@/components/image.jpeg';
+import { Typewriter } from 'react-simple-typewriter';
 
 const Hero = () => {
   return (
@@ -89,7 +90,25 @@ const Hero = () => {
         {char === " " ? "\u00A0" : char}
       </motion.span>
     ))}
-</div>
+</div><motion.div
+  initial={{ opacity: 0, y: 20 }}
+  animate={{ opacity: 1, y: 0 }}
+  transition={{ duration: 1, delay: 1.2 }} // Delay after subtitle animation
+  className="text-lg sm:text-xl text-center pt-4 text-gray-300"
+>
+  Empowering&nbsp;
+  <span className="text-sky-400 font-semibold">
+    <Typewriter
+      words={["Creativity", "Innovation", "Collaboration", "Future Leaders"]}
+      loop={0}
+      cursor
+      cursorStyle="|"
+      typeSpeed={70}
+      deleteSpeed={40}
+      delaySpeed={2000}
+    />
+  </span>
+</motion.div>
 
 <motion.div
   initial={{ opacity: 0, y: 20 }}
@@ -121,6 +140,15 @@ const Hero = () => {
           />
         </motion.div>
       </div>
+       <motion.div
+        className="absolute bottom-6 left-1/2 transform -translate-x-1/2 sm:hidden"
+        animate={{ y: [0, 10, 0] }}
+        transition={{ repeat: Infinity, duration: 2 }}
+      >
+        <div className="w-6 h-10 border-2 border-white rounded-full flex items-start justify-center">
+          <div className="w-1 h-2 bg-white mt-1 rounded-full" />
+        </div>
+      </motion.div>
     </section>
   );
 };
