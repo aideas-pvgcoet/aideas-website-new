@@ -1,15 +1,15 @@
 'use client';
-import { useEffect, useRef } from 'react'; // ✅ NEW
+import { useEffect, useRef } from 'react';
 import { motion } from 'framer-motion';
 import Image from 'next/image';
-import Logo from '@/components/image.jpeg'; // Adjust path if needed
+import Logo from '@/components/image.jpeg';
 
 const Hero = () => {
-  const headingRef = useRef<HTMLHeadingElement>(null); // ✅ NEW
+  const headingRef = useRef<HTMLHeadingElement>(null);
 
   useEffect(() => {
     const scrambleText = (el: HTMLElement, text: string, delay = 0) => {
-      const chars = '!<>-_\\/[]{}—=+*^?#________';
+      const chars = '!<>-_\/[]{}—=+*^?#________';
       let iterations = 0;
 
       const scramble = () => {
@@ -55,18 +55,23 @@ const Hero = () => {
       </div>
 
       {/* 🧠 Hero Content */}
-      <div className="relative z-10 flex flex-col-reverse lg:flex-row items-center justify-center min-h-[70vh] sm:min-h-screen px-4 sm:px-12 md:px-20 max-w-7xl mx-auto gap-4 sm:gap-8">
+      <div className="relative z-20 flex flex-col-reverse lg:flex-row items-center justify-center min-h-[70vh] sm:min-h-screen px-4 sm:px-12 md:px-20 max-w-7xl mx-auto gap-4 sm:gap-8">
         {/* 📝 Text Section */}
         <div className="text-center lg:text-left max-w-xl">
-          <motion.h1
-            ref={headingRef} // ✅ NEW
-            initial={{ opacity: 0, y: 60 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 1 }}
-            className="text-5xl font-extrabold text-transparent bg-clip-text bg-gradient-to-r from-sky-400 to-purple-500"
-          >
-            Welcome to aIDEAS
-          </motion.h1>
+            <div className="text-2xl flex  justify-center gap-1 pt-3 flex-wrap">
+  {'Welcome to aIDEAS'.split('').map((char, index) => (
+    <motion.span
+      key={index}
+      initial={{ y: 40, opacity: 0, rotate: -90 }}
+      animate={{ y: 0, opacity: 1, rotate: 0 }}
+      transition={{ delay: 0.05 * index, type: 'spring', stiffness: 100 }}
+      className="text-5xl text-center font-extrabold text-transparent bg-clip-text bg-gradient-to-r from-sky-400 to-purple-500"
+    >
+      {char === ' ' ? '\u00A0' : char}
+    </motion.span>
+  ))}
+</div>
+
 
           <motion.p
             initial={{ opacity: 0, y: 40 }}
