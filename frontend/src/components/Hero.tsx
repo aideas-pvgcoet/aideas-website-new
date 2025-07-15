@@ -38,14 +38,14 @@ const Hero = () => {
       <div className="relative z-10 flex flex-col-reverse lg:flex-row items-center justify-center min-h-[70vh] sm:min-h-screen px-4 sm:px-12 md:px-20 max-w-7xl mx-auto gap-4 sm:gap-8">
         {/* 📝 Text Section */}
         <div className="text-center lg:text-left max-w-xl">
-            <div className="text-9xl flex  justify-center gap-1 pt-3 flex-wrap">
+            <div className="text-9xl flex justify-center gap-1 pt-3 flex-wrap">
   {'Welcome to aIDEAS'.split('').map((char, index) => (
     <motion.span
       key={index}
       initial={{ y: 40, opacity: 0, rotate: -90 }}
       animate={{ y: 0, opacity: 1, rotate: 0 }}
       transition={{ delay: 0.08 * index, type: 'spring', stiffness: 100 }}
-      className="text-6xl text-center font-extrabold text-transparent bg-clip-text bg-gradient-to-r from-sky-400 to-purple-500"
+      className="text-6xl lg:text-5xl text-center lg:text-left font-extrabold text-transparent bg-clip-text bg-gradient-to-r from-sky-400 to-purple-500"
     >
       {char === ' ' ? '\u00A0' : char}
     </motion.span>
@@ -59,7 +59,7 @@ const Hero = () => {
         initial={{ y: 40, opacity: 0 }}
         animate={{ y: 0, opacity: 1 }}
         transition={{ delay: 0.04 * index, type: 'spring', stiffness: 80 }}
-        className="text-base sm:text-lg md:text-xl text-gray-300"
+        className="pt-2 text-base sm:text-lg md:text-xl text-gray-300"
       >
         {char === " " ? "\u00A0" : char}
       </motion.span>
