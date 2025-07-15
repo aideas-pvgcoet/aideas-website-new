@@ -60,7 +60,23 @@ const Hero = () => {
 
 
 <div className="flex flex-wrap justify-center text-center max-w-xl mx-auto">
-  {"Igniting minds. Innovating futures. Exploring the realm of Artificial Intelligence and Data Science."
+  {"Igniting minds. Innovating futures. Exploring "
+    .split("")
+    .map((char, index) => (
+      <motion.span
+        key={index}
+        initial={{ y: 40, opacity: 0 }}
+        animate={{ y: 0, opacity: 1 }}
+        transition={{ delay: 0.04 * index, type: 'spring', stiffness: 80 }}
+        className="pt-2 text-base sm:text-lg md:text-xl text-gray-300"
+      >
+        {char === " " ? "\u00A0" : char}
+      </motion.span>
+    ))}
+</div>
+
+<div className="flex flex-wrap justify-center text-center max-w-xl mx-auto">
+  {" the realme of Artificial Intelligence and Data Science."
     .split("")
     .map((char, index) => (
       <motion.span
