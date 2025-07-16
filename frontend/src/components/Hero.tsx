@@ -141,7 +141,7 @@ const Hero = () => {
         </motion.div>
       </div>
        <motion.div
-        className="absolute bottom-6 left-1/2 transform -translate-x-1/2 sm:hidden"
+        className="absolute bottom-19 left-1/2 transform -translate-x-1/2 sm:hidden"
         animate={{ y: [0, 10, 0] }}
         transition={{ repeat: Infinity, duration: 2 }}
       >
