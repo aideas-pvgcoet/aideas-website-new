@@ -3,10 +3,12 @@ import { useEffect, useRef, useState } from 'react';
 import Link from 'next/link';
 import { FaBars, FaTimes } from 'react-icons/fa';
 import gsap from 'gsap';
+import Image from 'next/image';
+import i from "@/components/logo.png";
 
 export default function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
-  const logoRef = useRef<HTMLHeadingElement>(null);
+  const logoRef = useRef<HTMLDivElement>(null);
 
   const toggleMenu = () => setIsOpen(!isOpen);
 
@@ -28,19 +30,27 @@ export default function Navbar() {
   }, []);
 
   // Split logo text into spans
-  const logo = 'aideas'.split('').map((char, index) => (
-    <span key={index} className="inline-block">
-      {char}
-    </span>
+  const logo = 'aIDEAS'.split('').map((char, index) => (
+    <span key={index} className="inline-block">{char}</span>
   ));
 
   return (
     <header className="sticky z-20 top-0 w-full bg-black border-b-2 text-white px-6 py-4">
       <div className="max-w-7xl mx-auto flex items-center justify-between">
-        {/* 🟢 Fancy Animated Logo */}
-        <h1 ref={logoRef} className="text-3xl font-bold text-blue-600">
-          {logo}
-        </h1>
+        {/* 🟢 Logo */}
+        <div className="flex items-center space-x-3">
+          <Image
+            src={i}
+            alt="aIDEAS Logo"
+            width={40}
+            height={40}
+            className="bg-white rounded-full border border-white"
+          />
+          <div className='className="text-2xl sm:text-3xl font-bold bg-gradient-to-r from-sky-400 via-pink-500 to-purple-600 bg-clip-text text-transparent animate-gradient-text bg-[length:300%]"
+'>
+            {logo}
+          </div>
+        </div>
 
         {/* 📱 Mobile toggle */}
         <button className="md:hidden focus:outline-none" onClick={toggleMenu}>

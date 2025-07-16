@@ -51,7 +51,7 @@ const Hero = () => {
   }, []);
 
   return (
-    <section className="relative w-full min-h-[90vh] sm:min-h-screen text-white overflow-hidden bg-black">
+    <section className="relative w-full min-h-[90vh] sm:min-h-screen text-white overflow-hidden">
       {/* Hero Section */}
       <div className="relative z-10 flex flex-col-reverse lg:flex-row items-center justify-center min-h-[70vh] sm:min-h-screen px-6 sm:px-12 md:px-20 max-w-7xl mx-auto gap-12">
         {/* Text Section */}
@@ -128,7 +128,7 @@ const Hero = () => {
       <section
         ref={containerRef}
         id="about"
-        className="w-full px-6 sm:px-12 py-24 bg-black"
+        className="w-full px-6 sm:px-12 py-24"
       >
         <div className="max-w-6xl mx-auto text-center mb-16">
           <h2 className="text-4xl sm:text-5xl font-extrabold text-transparent bg-clip-text bg-gradient-to-r from-sky-400 to-purple-500">
