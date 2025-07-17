@@ -50,7 +50,7 @@ const membersData: Member[] = [
 
 const Members = () => {
   return (
-    <div className="min-h-screen bg-gradient-to-b from-gray-50 to-blue-100 py-10">
+    <div className="min-h-screen bg-black py-10">
       <h1 className="text-4xl font-bold text-center mb-10 text-blue-700">
         Our Team
       </h1>

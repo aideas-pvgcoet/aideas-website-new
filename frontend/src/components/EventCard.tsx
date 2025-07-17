@@ -20,7 +20,7 @@ export default function EventCard({ title, date, description, image }: EventCard
         alt={title}
         width={600}
         height={400}
-        className="w-full h-48 object-cover"
+        className="w-full h-81 object-cover p-1 rounded-2xl"
       />
       <div className="p-4">
         <h2 className="text-xl font-semibold text-gray-800 mb-2">{title}</h2>

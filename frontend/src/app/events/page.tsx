@@ -5,11 +5,36 @@ import EventCard from "@/components/EventCard";
 import { motion } from "framer-motion";
 
 const events = [ 
+  {
+    title: "Avinya",
+    date: "5th May 2023",
+    description: "Introduction to cybersecurity principles.",
+    image: "/Avinya.png",
+  },
+  {
+    title: "Murder Mystery",
+    date: "5th May 2023",
+    description: "Introduction to cybersecurity principles.",
+    image: "/mystry.png",
+  },
+
+  {
+    title: "Tug of War",
+    date: "5th May 2023",
+    description: "Introduction to cybersecurity principles.",
+    image: "/war.png",
+  },
+   {
+    title: "Escape Room",
+    date: "5th May 2023",
+    description: "Introduction to cybersecurity principles.",
+    image: "/Room.png",
+  },
    {
     title: "Savalation Army Visit",
     date: "18th Oct 2023",
     description: "Introduction to cybersecurity principles.",
-    image: "/food.JPG",
+    image: "/army.png",
   },
   {
     title: "Masterchef PVG",
@@ -30,10 +55,10 @@ const events = [
     image: "/FLIP.jpg",
   },
   {
-    title: "Code of Clash",
+    title: "Code Clash",
     date: "2nd April 2025",
     description: "Solving the coding question.",
-    image: "/code.jpg",
+    image: "/code.png",
   },
 ];
 
