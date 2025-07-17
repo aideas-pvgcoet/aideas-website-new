@@ -2,7 +2,14 @@
 import Image from "next/image";
 import { motion } from "framer-motion";
 
-export default function EventCard({ title, date, description, image }: any) {
+interface EventCardProps {
+  title: string;
+  date: string;
+  description: string;
+  image: string;
+}
+
+export default function EventCard({ title, date, description, image }: EventCardProps) {
   return (
     <motion.div
       whileHover={{ scale: 1.03 }}
