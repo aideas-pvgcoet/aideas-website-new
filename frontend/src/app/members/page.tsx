@@ -16,7 +16,7 @@ interface Member {
 }
 
 const membersData: Member[] = [
-  {
+    {
     id: 1,
     name: "Atharva Ombase",
     designation: "General Secretary",
@@ -158,6 +158,103 @@ const membersData: Member[] = [
   },
 ];
 
+const MemberCard = ({ member, isMobile }: { member: Member; isMobile: boolean }) => {
+  const controls = useAnimation();
+
+  return (
+    <motion.div
+      key={member.id}
+      initial={{ opacity: 0, scale: 0.95 }}
+      whileInView={{
+        opacity: 1,
+        scale: 1,
+      }}
+      onViewportEnter={() => {
+        if (isMobile) {
+          controls.start({
+            boxShadow: "0 0 20px #0ff",
+            transition: { duration: 0.5 },
+          });
+        }
+      }}
+      onViewportLeave={() => {
+        if (isMobile) {
+          controls.start({
+            boxShadow: "0 0 0px transparent",
+            transition: { duration: 0.5 },
+          });
+        }
+      }}
+      animate={controls}
+      viewport={{ amount: 0.3 }}
+      transition={{ duration: 0.4 }}
+      className="bg-black/60 border border-fuchsia-700 rounded-2xl overflow-hidden 
+        md:shadow-none
+        md:hover:scale-105 md:hover:border-cyan-400 md:hover:shadow-[0_0_20px_#0ff] 
+        transition-all duration-300"
+    >
+      <Image
+        src={member.image}
+        alt={member.name}
+        width={600}
+        height={500}
+        className="w-full h-110 p-4 object-cover"
+      />
+      <div className="p-4 text-center">
+        <motion.h2
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.4, delay: 0.1 }}
+          className="text-2xl font-bold bg-gradient-to-r from-cyan-400 to-fuchsia-500 bg-clip-text text-transparent hover:from-pink-500 hover:to-purple-400 transition-colors duration-300"
+        >
+          {member.name}
+        </motion.h2>
+        <motion.p
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.4, delay: 0.2 }}
+          className="text-lg text-fuchsia-400 font-medium hover:text-pink-500 transition-colors duration-300"
+        >
+          {member.designation}
+        </motion.p>
+        <p className="text-gray-300 mt-2 text-sm">{member.info}</p>
+
+        {/* Social Icons */}
+        <div className="flex justify-center gap-5 mt-3">
+          {member.instagram && (
+            <a
+              href={member.instagram}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-pink-500 hover:text-pink-300 transition-transform duration-300 hover:scale-125"
+            >
+              <FaInstagram size={25} />
+            </a>
+          )}
+          {member.linkedin && (
+            <a
+              href={member.linkedin}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-blue-400 hover:text-blue-300 transition-transform duration-300 hover:scale-125"
+            >
+              <FaLinkedin size={25} />
+            </a>
+          )}
+          {member.email && (
+            <a
+              href={`mailto:${member.email}`}
+              className="text-gray-300 hover:text-gray-100 transition-transform duration-300 hover:scale-125"
+            >
+              <FaEnvelope size={25} />
+            </a>
+          )}
+        </div>
+      </div>
+    </motion.div>
+  );
+};
+
 const Members = () => {
   const [isMobile, setIsMobile] = useState(false);
 
@@ -190,102 +287,9 @@ const Members = () => {
       </h1>
 
       <div className="relative z-10 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 px-6">
-        {membersData.map((member) => {
-          const controls = useAnimation();
-
-          return (
-            <motion.div
-              key={member.id}
-              initial={{ opacity: 0, scale: 0.95 }}
-              whileInView={{
-                opacity: 1,
-                scale: 1,
-              }}
-              onViewportEnter={() => {
-                if (isMobile) {
-                  controls.start({
-                    boxShadow: "0 0 20px #0ff",
-                    transition: { duration: 0.5 },
-                  });
-                }
-              }}
-              onViewportLeave={() => {
-                if (isMobile) {
-                  controls.start({
-                    boxShadow: "0 0 0px transparent",
-                    transition: { duration: 0.5 },
-                  });
-                }
-              }}
-              animate={controls}
-              viewport={{ amount: 0.3 }}
-              transition={{ duration: 0.4 }}
-              className="bg-black/60 border border-fuchsia-700 rounded-2xl overflow-hidden 
-                md:shadow-none
-                md:hover:scale-105 md:hover:border-cyan-400 md:hover:shadow-[0_0_20px_#0ff] 
-                transition-all duration-300"
-            >
-              <Image
-                src={member.image}
-                alt={member.name}
-                width={600}
-                height={500}
-                className="w-full h-110 p-4 object-cover"
-              />
-              <div className="p-4 text-center">
-                <motion.h2
-                  initial={{ opacity: 0, y: 20 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  transition={{ duration: 0.4, delay: 0.1 }}
-                  className="text-2xl font-bold bg-gradient-to-r from-cyan-400 to-fuchsia-500 bg-clip-text text-transparent hover:from-pink-500 hover:to-purple-400 transition-colors duration-300"
-                >
-                  {member.name}
-                </motion.h2>
-                <motion.p
-                  initial={{ opacity: 0, y: 20 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  transition={{ duration: 0.4, delay: 0.2 }}
-                  className="text-lg text-fuchsia-400 font-medium hover:text-pink-500 transition-colors duration-300"
-                >
-                  {member.designation}
-                </motion.p>
-                <p className="text-gray-300 mt-2 text-sm">{member.info}</p>
-
-                {/* Social Icons */}
-                <div className="flex justify-center gap-5 mt-3">
-                  {member.instagram && (
-                    <a
-                      href={member.instagram}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="text-pink-500 hover:text-pink-300 transition-transform duration-300 hover:scale-125"
-                    >
-                      <FaInstagram size={25} />
-                    </a>
-                  )}
-                  {member.linkedin && (
-                    <a
-                      href={member.linkedin}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="text-blue-400 hover:text-blue-300 transition-transform duration-300 hover:scale-125"
-                    >
-                      <FaLinkedin size={25} />
-                    </a>
-                  )}
-                  {member.email && (
-                    <a
-                      href={`mailto:${member.email}`}
-                      className="text-gray-300 hover:text-gray-100 transition-transform duration-300 hover:scale-125"
-                    >
-                      <FaEnvelope size={25} />
-                    </a>
-                  )}
-                </div>
-              </div>
-            </motion.div>
-          );
-        })}
+        {membersData.map((member) => (
+          <MemberCard key={member.id} member={member} isMobile={isMobile} />
+        ))}
       </div>
     </div>
   );
